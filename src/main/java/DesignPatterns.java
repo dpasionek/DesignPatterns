@@ -1,5 +1,4 @@
-import Composite.Employee;
-import Proxy.Lawyer;
+import Composite.*;
 import Strategy.*;
 import Template.*;
 import Singleton.*;
@@ -10,6 +9,7 @@ import Decorator.*;
 import Iterator.*;
 import Observer.*;
 import Proxy.*;
+import Command.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -204,11 +204,35 @@ public class DesignPatterns {
           * (Drop Dead Diva)
           */
          System.out.println("----------");
-         
+
          Person p = new Lawyer("Jane Bingum");
          p.talk();
          p.talk(); //Plaintiff doesn't have to get ready for court again.
          // The lawyer represents the Client!!!
+
+         /**
+          * Command Design Pattern
+          *
+          * A request is wrapped under an object as command and passed to invoker object.
+          * Invoker object looks for the appropriate object which can handle this command
+          * and passes the command to the corresponding object which executes the command
+          */
+         System.out.println("----------");
+         BuyCommand buyCommand = new BuyCommand(10);
+         SellCommand sellCommand = new SellCommand(3);
+         CommandExecutor commandExecutor = new CommandExecutor();
+
+         commandExecutor.addCommand(buyCommand);
+         commandExecutor.addCommand(sellCommand);
+
+         commandExecutor.execute();
+
+         /**
+          * Momento Design Pattern
+          *
+          *
+          */
+
 
      }
 }
