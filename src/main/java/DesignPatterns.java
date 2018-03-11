@@ -1,4 +1,5 @@
 import Composite.Employee;
+import Proxy.Lawyer;
 import Strategy.*;
 import Template.*;
 import Singleton.*;
@@ -8,6 +9,7 @@ import Flyweight.*;
 import Decorator.*;
 import Iterator.*;
 import Observer.*;
+import Proxy.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -193,6 +195,20 @@ public class DesignPatterns {
          subject1.setState(1);
          subject2.setState(0);
          subject1.setState(10);
+
+         /**
+          * Proxy Design Pattern
+          *
+          * We create object having original object to interface its functionality to outer world.
+          * A class represents functionality of another class. Similar to a court case
+          * (Drop Dead Diva)
+          */
+         System.out.println("----------");
+         
+         Person p = new Lawyer("Jane Bingum");
+         p.talk();
+         p.talk(); //Plaintiff doesn't have to get ready for court again.
+         // The lawyer represents the Client!!!
 
      }
 }
