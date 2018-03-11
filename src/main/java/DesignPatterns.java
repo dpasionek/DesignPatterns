@@ -5,6 +5,7 @@ import Singleton.*;
 import Adapter.*;
 import Factory.*;
 import Flyweight.*;
+import Decorator.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,7 +138,22 @@ public class DesignPatterns {
 
          /**
           * Decorator Design Pattern
+          *
+          * Decorator pattern allows a user to add new functionality to an existing object
+          * without altering its structure. This pattern creates a decorator class which
+          * wraps the original class and provides additional functionality keeping class
+          * methods signature intact.
           */
+         System.out.println("----------");
+
+         Shape pentagon = new Pentagon();
+         pentagon.draw();
+
+         Shape purpleOctagon = new PurpleShapeDecorator(new Octagon());
+         purpleOctagon.draw();
+
+         Shape purplePentagon = new PurpleShapeDecorator(new Pentagon());
+         purplePentagon.draw();
 
 
      }
