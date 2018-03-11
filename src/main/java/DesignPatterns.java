@@ -6,8 +6,10 @@ import Adapter.*;
 import Factory.*;
 import Flyweight.*;
 import Decorator.*;
+import Iterator.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DesignPatterns {
@@ -132,8 +134,7 @@ public class DesignPatterns {
              if(e != tatyana) tatyana.addSubordinate(e);
 
          for(Employee e : employees) {
-             System.out.println(e.getName());
-             System.out.println(e.getInChargeOf());
+             System.out.println(e.getName() + " --> " + e.getInChargeOf());
          }
 
          /**
@@ -155,6 +156,19 @@ public class DesignPatterns {
          Shape purplePentagon = new PurpleShapeDecorator(new Pentagon());
          purplePentagon.draw();
 
+         /**
+          * Iterator Design Pattern
+          *
+          * This pattern is used to get a way to access the elements of a collection
+          * object in sequential manner without any need to know its underlying representation.
+          */
+
+         Games games = new Games();
+
+         for(Iterator iter = games.getIterator(); iter.hasNext();){
+             Game g = (Game) iter.next();
+             System.out.println("Name : " + g.getName());
+         }
 
      }
 }
