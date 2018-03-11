@@ -255,6 +255,13 @@ public class DesignPatterns {
              System.out.println(m.getState());
          System.out.println(caretaker.getMemento(2).getState());
 
+         System.out.println("State before Restore: " + originator.getState());
+         originator.setState(caretaker.getMemento(0).getState());
+         System.out.println("State after Restore: " + originator.getState());
+
+
+
+
          /**
           *
           */
