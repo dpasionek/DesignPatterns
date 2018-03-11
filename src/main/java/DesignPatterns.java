@@ -7,6 +7,7 @@ import Factory.*;
 import Flyweight.*;
 import Decorator.*;
 import Iterator.*;
+import Observer.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -169,6 +170,29 @@ public class DesignPatterns {
              Game g = (Game) iter.next();
              System.out.println("Name : " + g.getName());
          }
+
+         /**
+          * Observer Design Pattern
+          *
+          *Observer pattern is used when there is one-to-many relationship between
+          * objects such as if one object is modified, its dependent objects are
+          * to be notified automatically
+          */
+         System.out.println("----------");
+
+         Subject subject1 = new Subject("Subject 1");
+         Subject subject2 = new Subject("Subject 2");
+
+         new ObserverA(subject1);
+         new ObserverB(subject1);
+         new ObserverC(subject1);
+
+         new ObserverA(subject2);
+         new ObserverC(subject2);
+
+         subject1.setState(1);
+         subject2.setState(0);
+         subject1.setState(10);
 
      }
 }
