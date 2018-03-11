@@ -10,6 +10,7 @@ import Iterator.*;
 import Observer.*;
 import Proxy.*;
 import Command.*;
+import Memento.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -228,10 +229,36 @@ public class DesignPatterns {
          commandExecutor.execute();
 
          /**
-          * Momento Design Pattern
+          * Memento Design Pattern
           *
+          * Memento pattern is used to restore state of an object to a previous state.
+          */
+         System.out.println("----------");
+
+         Originator originator = new Originator();
+         Originator o2 = new Originator();
+         Caretaker caretaker = new Caretaker();
+
+         originator.setState("My first state");
+         originator.setState("My second state");
+         caretaker.addMemento(originator.createMemento());
+         originator.setState("My third state");
+         caretaker.addMemento(originator.createMemento());
+         originator.setState("A specific 4th state");
+         caretaker.addMemento(originator.createMemento());
+
+         o2.setState("O2s FIRST STATE!");
+         caretaker.addMemento(o2.createMemento());
+
+         List<Memento> mementos = caretaker.getAllMementos();
+         for(Memento m : mementos)
+             System.out.println(m.getState());
+         System.out.println(caretaker.getMemento(2).getState());
+
+         /**
           *
           */
+
 
 
      }
