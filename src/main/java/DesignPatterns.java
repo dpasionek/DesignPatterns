@@ -15,6 +15,7 @@ import Memento.*;
 import State.*;
 import Prototype.*;
 import ChainOfResponsibility.*;
+import Visitor.*;
 
 
 import java.util.ArrayList;
@@ -313,6 +314,14 @@ public class DesignPatterns {
          log2.setNextLogger(log3);
          log1.log("MEOW");
 
-
+         /**
+          * Visitor Design Pattern
+          * 
+          * We use a visitor class which changes the executing algorithm of an element class.
+          * By this way, execution algorithm of element can vary as and when visitor varies.
+          */
+         System.out.println("----------");
+         Item cart = new Cart();
+         cart.accept(new ItemVisitorImpl());
      }
 }
