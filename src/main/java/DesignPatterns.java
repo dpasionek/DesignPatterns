@@ -1,7 +1,4 @@
 import Composite.*;
-import State.Context;
-import State.FanSpeedExtreme;
-import State.FanSpeedLow;
 import Strategy.*;
 import Template.*;
 import Singleton.*;
@@ -14,6 +11,8 @@ import Observer.*;
 import Proxy.*;
 import Command.*;
 import Memento.*;
+import State.*;
+
 
 import java.util.ArrayList;
 import java.util.Iterator;
