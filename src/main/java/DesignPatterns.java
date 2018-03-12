@@ -14,6 +14,7 @@ import Command.*;
 import Memento.*;
 import State.*;
 import Prototype.*;
+import ChainOfResponsibility.*;
 
 
 import java.util.ArrayList;
@@ -295,6 +296,22 @@ public class DesignPatterns {
          Prototype.Shape clonedRhombus = ShapeCache.get("2");
 
          System.out.println(clonedHexagon.getType() + "\n" + clonedRhombus.getType());
+
+         /**
+          * Chain of Responsibility Design Pattern
+          *
+          * chain of responsibility pattern creates a chain of receiver objects
+          * for a request. This pattern decouples sender and receiver of a request
+          * based on type of request.
+          */
+         System.out.println("----------");
+         AbstractLogger log1 = new Logger1();
+         AbstractLogger log2 = new Logger2();
+         AbstractLogger log3 = new Logger3();
+
+         log1.setNextLogger(log2);
+         log2.setNextLogger(log3);
+         log1.log("MEOW");
 
 
      }
