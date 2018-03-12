@@ -1,4 +1,5 @@
 import Composite.*;
+import Prototype.ShapeCache;
 import Strategy.*;
 import Template.*;
 import Singleton.*;
@@ -12,6 +13,7 @@ import Proxy.*;
 import Command.*;
 import Memento.*;
 import State.*;
+import Prototype.*;
 
 
 import java.util.ArrayList;
@@ -153,13 +155,13 @@ public class DesignPatterns {
           */
          System.out.println("----------");
 
-         Shape pentagon = new Pentagon();
+         Decorator.Shape pentagon = new Pentagon();
          pentagon.draw();
 
-         Shape purpleOctagon = new PurpleShapeDecorator(new Octagon());
+         Decorator.Shape purpleOctagon = new PurpleShapeDecorator(new Octagon());
          purpleOctagon.draw();
 
-         Shape purplePentagon = new PurpleShapeDecorator(new Pentagon());
+         Decorator.Shape purplePentagon = new PurpleShapeDecorator(new Pentagon());
          purplePentagon.draw();
 
          /**
@@ -277,6 +279,22 @@ public class DesignPatterns {
          extreme.execute(room);
          low.execute(room);
 
+         /**
+          * Prototype Design Pattern
+          *
+          * Creates duplicate object while keeping performance in mind.
+          * This pattern involves implementing a prototype interface which
+          * tells to create a clone of the current object. This pattern is
+          * used when creation of object directly is costly.
+          */
+         System.out.println("----------");
+
+         ShapeCache.load();
+
+         Prototype.Shape clonedHexagon = ShapeCache.get("1");
+         Prototype.Shape clonedRhombus = ShapeCache.get("2");
+
+         System.out.println(clonedHexagon.getType() + "\n" + clonedRhombus.getType());
 
 
      }
