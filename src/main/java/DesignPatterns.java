@@ -1,4 +1,7 @@
 import Composite.*;
+import State.Context;
+import State.FanSpeedExtreme;
+import State.FanSpeedLow;
 import Strategy.*;
 import Template.*;
 import Singleton.*;
@@ -166,6 +169,7 @@ public class DesignPatterns {
           * This pattern is used to get a way to access the elements of a collection
           * object in sequential manner without any need to know its underlying representation.
           */
+         System.out.println("----------");
 
          Games games = new Games();
 
@@ -253,18 +257,26 @@ public class DesignPatterns {
          List<Memento> mementos = caretaker.getAllMementos();
          for(Memento m : mementos)
              System.out.println(m.getState());
+
          System.out.println(caretaker.getMemento(2).getState());
 
          System.out.println("State before Restore: " + originator.getState());
          originator.setState(caretaker.getMemento(0).getState());
          System.out.println("State after Restore: " + originator.getState());
 
-
-
-
          /**
+          * State Design Pattern
           *
+          * In State pattern a class behavior changes based on its state
           */
+         System.out.println("----------");
+         Context room = new Context();
+
+         FanSpeedExtreme extreme = new FanSpeedExtreme();
+         FanSpeedLow low = new FanSpeedLow();
+
+         extreme.execute(room);
+         low.execute(room);
 
 
 
